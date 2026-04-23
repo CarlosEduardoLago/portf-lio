@@ -116,8 +116,8 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#020617] text-slate-100">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(56,189,248,0.16),transparent_35%),radial-gradient(circle_at_90%_0%,rgba(16,185,129,0.14),transparent_30%),radial-gradient(circle_at_50%_100%,rgba(99,102,241,0.18),transparent_42%)]" />
-      <header className="sticky top-0 z-30 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
-        <nav className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
+      <header className="sticky top-0 z-30 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
+        <nav className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
           <motion.div
             className="flex items-center gap-3"
             initial={{ opacity: 0, x: -14 }}
@@ -149,88 +149,91 @@ export default function Home() {
         </nav>
       </header>
 
-      <main className="relative z-10 mx-auto w-full max-w-6xl px-6 md:px-8">
+      <main className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8">
         <motion.section
           id="sobre"
           variants={sectionReveal}
           initial="hidden"
           animate="show"
-          className="relative flex flex-col items-center gap-7 py-16 text-center md:py-24"
+          className="relative flex flex-col items-center gap-5 py-12 text-center sm:gap-6 sm:py-14 md:gap-7 md:py-24"
         >
-          <div className="pointer-events-none absolute inset-x-8 top-8 -z-10 h-72 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] via-transparent to-emerald-300/[0.07] shadow-[0_25px_70px_rgba(2,6,23,0.45)] md:inset-x-16" />
-          <Avatar className="size-28 ring-4 ring-emerald-300/25 shadow-[0_0_40px_rgba(16,185,129,0.22)] md:size-32">
-            <AvatarImage
-              src={profileImageSrc}
-              alt="Foto de perfil de Carlos Eduardo Lago"
-              className="object-cover"
-            />
-            <AvatarFallback>CL</AvatarFallback>
-          </Avatar>
-          <div className="space-y-4">
-            <motion.h1
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.12 }}
-              className="mx-auto max-w-[92%] bg-gradient-to-r from-white via-slate-100 to-emerald-100 bg-clip-text text-balance text-[2.15rem] leading-[1.05] font-bold tracking-[-0.025em] text-transparent sm:text-5xl md:max-w-none md:text-6xl"
-            >
-              Carlos Eduardo Lago
-            </motion.h1>
-            <p className="text-lg font-medium text-emerald-100 md:text-xl">
-              Gestor de Tráfego & Copywriter | Meta Ads e Google Ads
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {especialidadesMarketing.map((item) => (
-              <Badge
-                key={item}
-                variant="secondary"
-                className="rounded-full border border-emerald-300/25 bg-slate-900/80 px-3 py-1 text-xs text-emerald-100"
+          <div className="w-full rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] via-transparent to-emerald-300/[0.07] px-4 py-7 shadow-[0_20px_56px_rgba(2,6,23,0.45)] sm:px-6 sm:py-9 md:px-10 md:py-10">
+            <div className="flex flex-col items-center gap-5 sm:gap-6">
+              <Avatar className="size-24 ring-4 ring-emerald-300/25 shadow-[0_0_40px_rgba(16,185,129,0.22)] sm:size-28 md:size-32">
+                <AvatarImage
+                  src={profileImageSrc}
+                  alt="Foto de perfil de Carlos Eduardo Lago"
+                  className="object-cover"
+                />
+                <AvatarFallback>CL</AvatarFallback>
+              </Avatar>
+              <div className="space-y-3 sm:space-y-4">
+                <motion.h1
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.12 }}
+                  className="mx-auto max-w-[12.5ch] bg-gradient-to-r from-white via-slate-100 to-emerald-100 bg-clip-text text-[1.88rem] leading-[1.04] font-bold tracking-[-0.02em] text-transparent sm:max-w-none sm:text-5xl sm:leading-[1.03] md:text-6xl"
+                >
+                  Carlos Eduardo Lago
+                </motion.h1>
+                <p className="max-w-[22ch] text-[1.48rem] font-medium leading-tight text-emerald-100 sm:max-w-none sm:text-xl md:text-2xl">
+                  Gestor de Tráfego & Copywriter | Meta Ads e Google Ads
+                </p>
+              </div>
+              <div className="flex max-w-md flex-wrap items-center justify-center gap-1.5 sm:max-w-none sm:gap-2">
+                {especialidadesMarketing.map((item) => (
+                  <Badge
+                    key={item}
+                    variant="secondary"
+                    className="rounded-full border border-emerald-300/25 bg-slate-900/80 px-2.5 py-0.5 text-[0.68rem] text-emerald-100 sm:px-3 sm:py-1 sm:text-xs"
+                  >
+                    {item}
+                  </Badge>
+                ))}
+              </div>
+              <p className="max-w-[34ch] text-[0.95rem] leading-relaxed text-slate-200 sm:max-w-3xl sm:text-base md:text-lg">
+                Trabalho com marketing digital unindo duas frentes que, na minha
+                visão, precisam andar juntas: gestão de tráfego e copywriting.
+                Penso o anúncio dentro de um contexto maior, entendo o negócio a
+                fundo e só então desenho a estratégia.
+              </p>
+              <p className="max-w-[34ch] text-[0.95rem] leading-relaxed text-slate-300 sm:max-w-3xl sm:text-base md:text-lg">
+                Meu foco é gerar previsibilidade de crescimento com campanhas
+                estruturadas, comunicação objetiva e otimização contínua. Mais do que
+                entregar relatórios, busco construir um processo que transforme dados
+                em decisões claras para escalar resultado com consistência.
+              </p>
+              <motion.div
+                className="flex w-full max-w-xs flex-col justify-center gap-2.5 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-3"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 0.2 }}
               >
-                {item}
-              </Badge>
-            ))}
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="portfolio-btn portfolio-btn-primary w-full sm:w-auto"
+                >
+                  Entrar em contato
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/carlos-eduardo-lago-405168222/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="portfolio-btn portfolio-btn-secondary w-full sm:w-auto"
+                >
+                  LinkedIn
+                </a>
+              </motion.div>
+            </div>
           </div>
-          <p className="max-w-3xl text-base leading-relaxed text-slate-200 md:text-lg">
-            Trabalho com marketing digital unindo duas frentes que, na minha
-            visão, precisam andar juntas: gestão de tráfego e copywriting.
-            Penso o anúncio dentro de um contexto maior, entendo o negócio a
-            fundo e só então desenho a estratégia.
-          </p>
-          <p className="max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
-            Meu foco é gerar previsibilidade de crescimento com campanhas
-            estruturadas, comunicação objetiva e otimização contínua. Mais do que
-            entregar relatórios, busco construir um processo que transforme dados
-            em decisões claras para escalar resultado com consistência.
-          </p>
-          <motion.div
-            className="flex flex-wrap justify-center gap-3"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.2 }}
-          >
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noreferrer"
-              className="portfolio-btn portfolio-btn-primary"
-            >
-              Entrar em contato
-            </a>
-            <a
-              href="https://www.linkedin.com/in/carlos-eduardo-lago-405168222/"
-              target="_blank"
-              rel="noreferrer"
-              className="portfolio-btn portfolio-btn-secondary"
-            >
-              LinkedIn
-            </a>
-          </motion.div>
         </motion.section>
 
         <Separator className="portfolio-separator" />
 
         <motion.section
-          className="py-12"
+          className="py-10 sm:py-12"
           variants={sectionReveal}
           initial="hidden"
           whileInView="show"
@@ -238,12 +241,12 @@ export default function Home() {
         >
           <Card className="portfolio-card border-emerald-300/35 bg-gradient-to-br from-emerald-400/15 to-sky-400/10 text-slate-100">
             <CardHeader>
-              <CardTitle className="text-2xl">Destaque principal: 712 Propaganda</CardTitle>
-              <p className="text-base text-slate-200">
+              <CardTitle className="text-xl sm:text-2xl">Destaque principal: 712 Propaganda</CardTitle>
+              <p className="text-sm text-slate-200 sm:text-base">
                 Jan/2026 - atual | Gestor de Tráfego Pago | Performance & Growth
               </p>
             </CardHeader>
-            <CardContent className="space-y-3 text-base leading-relaxed text-slate-100/95">
+            <CardContent className="space-y-3 text-sm leading-relaxed text-slate-100/95 sm:text-base">
               <p>
                 Lidero campanhas no Meta Ads e Google Ads com foco em resultado
                 de negócio, indo além de relatórios: estratégia de funil, copy,
@@ -261,17 +264,17 @@ export default function Home() {
         <Separator className="portfolio-separator" />
 
         <motion.section
-          className="py-12"
+          className="py-10 sm:py-12"
           variants={sectionReveal}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
         >
           <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-xl font-semibold tracking-tight md:text-2xl">
+            <h2 className="text-lg font-semibold tracking-tight sm:text-xl md:text-2xl">
               Pilares de performance
             </h2>
-            <span className="text-xs uppercase tracking-[0.18em] text-emerald-200/80">
+            <span className="text-[0.62rem] uppercase tracking-[0.16em] text-emerald-200/80 sm:text-xs sm:tracking-[0.18em]">
               Marketing digital
             </span>
           </div>
@@ -286,10 +289,10 @@ export default function Home() {
               <motion.div key={item.titulo} variants={itemReveal}>
                 <Card className="h-full border border-emerald-200/25 bg-slate-900/90 text-slate-100 shadow-[0_10px_28px_rgba(2,6,23,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-emerald-200/45">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-lg text-emerald-100">{item.titulo}</CardTitle>
+                    <CardTitle className="text-base text-emerald-100 sm:text-lg">{item.titulo}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-base leading-relaxed text-slate-200">{item.descricao}</p>
+                    <p className="text-sm leading-relaxed text-slate-200 sm:text-base">{item.descricao}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -300,17 +303,17 @@ export default function Home() {
         <Separator className="portfolio-separator" />
 
         <motion.section
-          className="py-12"
+          className="py-10 sm:py-12"
           variants={sectionReveal}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
         >
           <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-xl font-semibold tracking-tight md:text-2xl">
+            <h2 className="text-lg font-semibold tracking-tight sm:text-xl md:text-2xl">
               Competências
             </h2>
-            <span className="text-sm text-slate-300">
+            <span className="text-xs text-slate-300 sm:text-sm">
               São Luís, MA
             </span>
           </div>
@@ -319,11 +322,11 @@ export default function Home() {
               <motion.div key={bloco.titulo} variants={itemReveal}>
                 <Card className="h-full border border-cyan-200/20 bg-slate-900/90 text-slate-100 shadow-[0_10px_28px_rgba(2,6,23,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-200/40">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-lg text-cyan-100">{bloco.titulo}</CardTitle>
+                  <CardTitle className="text-base text-cyan-100 sm:text-lg">{bloco.titulo}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
                   {bloco.itens.map((item) => (
-                    <p key={item} className="text-base leading-relaxed text-slate-200">
+                    <p key={item} className="text-sm leading-relaxed text-slate-200 sm:text-base">
                       - {item}
                     </p>
                   ))}
@@ -337,19 +340,19 @@ export default function Home() {
         <Separator className="portfolio-separator" />
 
         <motion.section
-          className="py-12"
+          className="py-10 sm:py-12"
           variants={sectionReveal}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
         >
-          <h2 className="mb-6 text-xl font-semibold tracking-tight md:text-2xl">
+          <h2 className="mb-6 text-lg font-semibold tracking-tight sm:text-xl md:text-2xl">
             Diferenciais de atuação
           </h2>
           <Card className="border border-white/10 bg-slate-900/88 text-slate-100 shadow-[0_10px_28px_rgba(2,6,23,0.45)]">
             <CardContent className="space-y-3 pt-6">
               {diferenciaisProfissionais.map((item) => (
-                <p key={item} className="text-base leading-relaxed text-slate-200">
+                <p key={item} className="text-sm leading-relaxed text-slate-200 sm:text-base">
                   - {item}
                 </p>
               ))}
@@ -361,16 +364,16 @@ export default function Home() {
 
         <motion.section
           id="experiencia"
-          className="py-12"
+          className="py-10 sm:py-12"
           variants={sectionReveal}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
         >
-          <h2 className="mb-6 text-xl font-semibold tracking-tight md:text-2xl">
+          <h2 className="mb-6 text-lg font-semibold tracking-tight sm:text-xl md:text-2xl">
             Experiência profissional
           </h2>
-          <motion.div className="relative space-y-5 border-l border-white/20 pl-6" variants={listStagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+          <motion.div className="relative space-y-4 border-l border-white/20 pl-5 sm:space-y-5 sm:pl-6" variants={listStagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
             {experiencias.map((exp, index) => (
               <motion.div
                 key={exp.empresa}
@@ -379,24 +382,24 @@ export default function Home() {
                 className="relative"
               >
                 <motion.span
-                  className="absolute -left-[29px] top-5 size-2.5 rounded-full bg-emerald-300 ring-4 ring-slate-950"
+                  className="absolute -left-[24px] top-5 size-2.5 rounded-full bg-emerald-300 ring-4 ring-slate-950 sm:-left-[29px]"
                   animate={{ scale: [1, 1.22, 1] }}
                   transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: index * 0.25 }}
                 />
                 <Card className="border border-white/10 bg-slate-900/90 text-slate-100 shadow-[0_10px_28px_rgba(2,6,23,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-emerald-200/35">
                   <CardHeader className="pb-2">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <CardTitle className="text-lg md:text-xl">
+                      <CardTitle className="text-base sm:text-lg md:text-xl">
                         {exp.empresa}
                       </CardTitle>
-                      <span className="text-sm text-slate-300">
+                      <span className="text-xs text-slate-300 sm:text-sm">
                         {exp.periodo}
                       </span>
                     </div>
-                    <p className="text-base font-medium leading-relaxed text-emerald-100">{exp.cargo}</p>
+                    <p className="text-sm font-medium leading-relaxed text-emerald-100 sm:text-base">{exp.cargo}</p>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-base leading-relaxed text-slate-200">
+                    <p className="text-sm leading-relaxed text-slate-200 sm:text-base">
                       {exp.descricao}
                     </p>
                   </CardContent>
@@ -410,13 +413,13 @@ export default function Home() {
 
         <motion.section
           id="formacao"
-          className="py-12"
+          className="py-10 sm:py-12"
           variants={sectionReveal}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
         >
-          <h2 className="mb-6 text-xl font-semibold tracking-tight md:text-2xl">
+          <h2 className="mb-6 text-lg font-semibold tracking-tight sm:text-xl md:text-2xl">
             Formação acadêmica
           </h2>
           <motion.div
@@ -429,13 +432,13 @@ export default function Home() {
               <motion.div key={`${item.instituicao}-${item.curso}`} variants={itemReveal}>
                 <Card className="border border-emerald-300/40 bg-gradient-to-br from-emerald-500/20 to-cyan-500/10 text-slate-100 shadow-[0_10px_28px_rgba(2,6,23,0.45)]">
                   <CardHeader>
-                    <CardTitle>{item.curso}</CardTitle>
-                    <p className="text-base text-slate-200">
+                    <CardTitle className="text-base sm:text-lg">{item.curso}</CardTitle>
+                    <p className="text-sm text-slate-200 sm:text-base">
                       {item.instituicao} | {item.periodo}
                     </p>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-base leading-relaxed text-slate-100/95">{item.descricao}</p>
+                    <p className="text-sm leading-relaxed text-slate-100/95 sm:text-base">{item.descricao}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -447,7 +450,7 @@ export default function Home() {
 
         <motion.section
           id="contato"
-          className="py-14"
+          className="py-12 sm:py-14"
           variants={sectionReveal}
           initial="hidden"
           whileInView="show"
@@ -455,26 +458,28 @@ export default function Home() {
         >
           <Card className="border border-emerald-200/25 bg-gradient-to-br from-slate-100 to-emerald-50 text-slate-900 shadow-[0_12px_30px_rgba(2,6,23,0.4)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1">
             <CardContent className="flex flex-col items-center gap-4 py-10 text-center">
-              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+              <h2 className="text-xl font-semibold tracking-tight sm:text-2xl md:text-3xl">
                 Vamos construir sua próxima campanha?
               </h2>
-              <p className="max-w-xl text-sm text-slate-600 md:text-base">
+              <p className="max-w-xl text-sm leading-relaxed text-slate-600 md:text-base">
                 Se você busca crescimento com estratégia, execução e melhoria
                 contínua, vamos conversar. Posso apoiar seu projeto com plano de
                 mídia, copy orientada à conversão e gestão focada em resultado.
               </p>
-              <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex w-full max-w-xs flex-col justify-center gap-2.5 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-3">
                 <a
-                  href="mailto:carloseduardo.lago@yahoo.com.br"
-                  className="portfolio-btn portfolio-btn-secondary bg-white/90 text-slate-900 hover:bg-white"
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="portfolio-btn portfolio-btn-secondary w-full sm:w-auto bg-white/90 text-slate-900 hover:bg-white"
                 >
-                  carloseduardo.lago@yahoo.com.br
+                  Entrar em contato
                 </a>
                 <a
                   href={whatsappLink}
                   target="_blank"
                   rel="noreferrer"
-                  className="portfolio-btn portfolio-btn-primary"
+                  className="portfolio-btn portfolio-btn-primary w-full sm:w-auto"
                 >
                   Falar no WhatsApp
                 </a>
@@ -482,7 +487,7 @@ export default function Home() {
                   href="https://www.linkedin.com/in/carlos-eduardo-lago-405168222/"
                   target="_blank"
                   rel="noreferrer"
-                  className="portfolio-btn portfolio-btn-outline"
+                  className="portfolio-btn portfolio-btn-outline w-full sm:w-auto"
                 >
                   LinkedIn
                 </a>
