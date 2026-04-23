@@ -57,6 +57,8 @@ const formacao = [
 ];
 
 export default function Home() {
+  const profileImageSrc =
+    "https://raw.githubusercontent.com/CarlosEduardoLago/portf-lio/master/public/profile.jpg";
   const whatsappLink =
     "https://wa.me/?text=Olá%20Carlos%2C%20vi%20seu%20portfólio%20e%20quero%20falar%20sobre%20um%20projeto.";
 
@@ -66,7 +68,7 @@ export default function Home() {
         <nav className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
             <Avatar className="size-9">
-              <AvatarImage src="/profile.jpg" alt="Carlos Eduardo Lago" />
+              <AvatarImage src={profileImageSrc} alt="Carlos Eduardo Lago" />
               <AvatarFallback>CL</AvatarFallback>
             </Avatar>
             <span className="text-sm font-semibold tracking-tight">
@@ -100,7 +102,7 @@ export default function Home() {
         >
           <Avatar className="size-28 ring-4 ring-background shadow-lg md:size-32">
             <AvatarImage
-              src="/profile.jpg"
+              src={profileImageSrc}
               alt="Foto de perfil de Carlos Eduardo Lago"
               className="object-cover"
             />
