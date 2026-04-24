@@ -61,7 +61,7 @@ const servicos = [
     icone: Target,
     titulo: "Gestão de Tráfego Pago",
     descricao:
-      "Campanhas estruturadas no Meta Ads e Google Ads com foco em previsibilidade, ROI e crescimento escalável.",
+      "Planejamento, execução e acompanhamento de campanhas em Meta Ads e Google Ads com foco em consistência operacional e análise de desempenho.",
     itens: [
       "Planejamento de canal e funil",
       "Segmentação de público e criativos",
@@ -73,7 +73,7 @@ const servicos = [
     icone: PenLine,
     titulo: "Copy & Funil de Conversão",
     descricao:
-      "Mensagens estratégicas para cada etapa do funil, alinhando posicionamento da marca à intenção do público.",
+      "Desenvolvimento de mensagens para diferentes etapas do funil, alinhando tom de voz, proposta e contexto de audiência.",
     itens: [
       "Copy para anúncios e landing pages",
       "Estrutura de funil por consciência",
@@ -85,7 +85,7 @@ const servicos = [
     icone: BarChart3,
     titulo: "Diagnóstico de Crescimento",
     descricao:
-      "Análise de gargalos em aquisição, conversão e retenção para transformar dados em um plano claro de ação.",
+      "Leitura de indicadores de aquisição e conversão para identificar pontos de melhoria e orientar decisões de otimização.",
     itens: [
       "Auditoria de campanhas e contas",
       "Leitura de métricas-chave",
@@ -118,35 +118,7 @@ const metodo = [
     numero: "04",
     titulo: "Otimização contínua",
     descricao:
-      "Leitura de métricas, ajustes finos e escala controlada: o que manter, o que pausar e o que escalar.",
-  },
-];
-
-const faq = [
-  {
-    pergunta: "Qual o investimento mínimo recomendado em mídia?",
-    resposta:
-      "O ideal é começar com uma verba que permita coletar dados em tempo hábil. Costumo trabalhar a partir de R$ 1.500/mês em mídia, mas o valor é definido após o diagnóstico e depende do nicho, ticket e meta.",
-  },
-  {
-    pergunta: "Em quanto tempo começo a ver resultado?",
-    resposta:
-      "As primeiras semanas são de aprendizado de campanha e coleta de dados. A leitura mais consistente de performance acontece entre 30 e 60 dias, com ajustes contínuos para consolidar o resultado.",
-  },
-  {
-    pergunta: "Quais ferramentas você utiliza no dia a dia?",
-    resposta:
-      "Meta Ads Manager, Google Ads, Google Analytics 4, Tag Manager, planilhas de BI e ferramentas de copy. Toda a operação é documentada para você ter clareza do que está sendo feito.",
-  },
-  {
-    pergunta: "Trabalhamos com contrato ou mensalidade fixa?",
-    resposta:
-      "Trabalho com contrato mensal com renovação por performance e alinhamento claro de escopo. Sem fidelidade longa: se o resultado não vier, reorientamos estratégia ou encerramos sem burocracia.",
-  },
-  {
-    pergunta: "O atendimento é remoto ou presencial?",
-    resposta:
-      "Atendo 100% online, com reuniões semanais de alinhamento e relatórios objetivos. Estou em São Luís/MA, mas atendo clientes em qualquer região do país.",
+      "Acompanhamento de métricas, ajustes recorrentes e documentação dos aprendizados ao longo do ciclo das campanhas.",
   },
 ];
 
@@ -247,58 +219,6 @@ function AnimatedCounter({
   );
 }
 
-function FaqItem({
-  pergunta,
-  resposta,
-  index,
-  open,
-  onToggle,
-}: {
-  pergunta: string;
-  resposta: string;
-  index: number;
-  open: boolean;
-  onToggle: () => void;
-}) {
-  return (
-    <motion.div
-      variants={itemReveal}
-      className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-sm"
-    >
-      <button
-        type="button"
-        aria-expanded={open}
-        aria-controls={`faq-panel-${index}`}
-        onClick={onToggle}
-        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors duration-200 hover:bg-white/5 sm:px-6 sm:py-5"
-      >
-        <span className="text-sm font-medium text-slate-100 sm:text-base">
-          {pergunta}
-        </span>
-        <ChevronDown
-          className={`size-5 shrink-0 text-[#FF6B35] transition-transform duration-300 ${
-            open ? "rotate-180" : ""
-          }`}
-          aria-hidden
-        />
-      </button>
-      <div
-        id={`faq-panel-${index}`}
-        role="region"
-        className={`grid overflow-hidden px-5 transition-[grid-template-rows] duration-300 ease-out sm:px-6 ${
-          open ? "grid-rows-[1fr] pb-5 sm:pb-6" : "grid-rows-[0fr]"
-        }`}
-      >
-        <div className="min-h-0">
-          <p className="text-sm leading-relaxed text-slate-300 sm:text-base">
-            {resposta}
-          </p>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 function FloatingWhatsApp() {
   return (
     <a
@@ -318,8 +238,6 @@ function FloatingWhatsApp() {
 }
 
 export default function Home() {
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
-
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#020617] text-slate-100">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_8%,rgba(255,107,53,0.14),transparent_38%),radial-gradient(circle_at_88%_0%,rgba(74,144,226,0.14),transparent_35%),radial-gradient(circle_at_50%_100%,rgba(123,104,238,0.18),transparent_45%)]" />
@@ -350,9 +268,6 @@ export default function Home() {
             <a href="#metodo" className="transition-colors duration-300 hover:text-[#FF6B35]">
               Método
             </a>
-            <a href="#faq" className="transition-colors duration-300 hover:text-[#FF6B35]">
-              FAQ
-            </a>
             <a href="#contato" className="transition-colors duration-300 hover:text-[#FF6B35]">
               Contato
             </a>
@@ -363,7 +278,7 @@ export default function Home() {
             rel="noreferrer"
             className="portfolio-btn portfolio-btn-primary btn-shimmer hidden h-10 px-4 text-sm sm:inline-flex"
           >
-            Falar agora
+            Contato
           </a>
         </nav>
       </header>
@@ -394,14 +309,15 @@ export default function Home() {
               transition={{ duration: 0.55, delay: 0.1 }}
               className="text-4xl leading-[1.05] font-bold tracking-[-0.02em] sm:text-5xl md:text-6xl"
             >
-              Tráfego pago e copy que{" "}
-              <span className="text-gradient-primary">viram receita</span> para o
-              seu negócio.
+              Gestão de tráfego e{" "}
+              <span className="text-gradient-primary">copywriting</span> com
+              abordagem estratégica.
             </motion.h1>
             <p className="mx-auto max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg lg:mx-0">
               Sou <strong className="text-slate-100">Carlos Eduardo Lago</strong>,
-              gestor de tráfego e copywriter. Conecto estratégia, mídia e
-              comunicação para gerar crescimento previsível com Meta Ads e Google Ads.
+              gestor de tráfego e copywriter. Minha atuação integra estratégia,
+              mídia e comunicação com foco em contexto de negócio, funil e
+              métricas de desempenho.
             </p>
             <motion.div
               className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap lg:justify-start"
@@ -415,7 +331,7 @@ export default function Home() {
                 rel="noreferrer"
                 className="portfolio-btn portfolio-btn-primary btn-shimmer w-full sm:w-auto"
               >
-                Solicitar diagnóstico
+                Entrar em contato
               </a>
               <a
                 href={linkedinLink}
@@ -432,7 +348,7 @@ export default function Home() {
                 <span className="absolute inline-flex size-2 rounded-full bg-emerald-400 animate-pulse-ring" />
                 <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
               </span>
-              Disponível para novos projetos
+              Aberto a oportunidades profissionais
             </div>
           </div>
 
@@ -487,7 +403,7 @@ export default function Home() {
               Sobre mim
             </span>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-              Marketing digital com <span className="text-gradient-primary">estratégia de verdade</span>
+              Marketing digital com <span className="text-gradient-primary">visão integrada</span>
             </h2>
           </div>
 
@@ -524,17 +440,17 @@ export default function Home() {
 
             <motion.div className="space-y-6" variants={itemReveal}>
               <p className="text-base leading-relaxed text-slate-200 sm:text-lg">
-                Trabalho com marketing digital unindo duas frentes que precisam
-                andar juntas: <strong className="text-white">gestão de tráfego</strong> e{" "}
-                <strong className="text-white">copywriting</strong>. Penso o anúncio
-                dentro de um contexto maior, entendo o negócio a fundo e só então
-                desenho a estratégia.
+                Atuo em marketing digital com integração entre{" "}
+                <strong className="text-white">gestão de tráfego</strong> e{" "}
+                <strong className="text-white">copywriting</strong>. Essa
+                combinação orienta meu trabalho desde o entendimento do negócio
+                até a estruturação das campanhas.
               </p>
               <p className="text-base leading-relaxed text-slate-300 sm:text-lg">
-                Meu foco é gerar previsibilidade de crescimento com campanhas
-                estruturadas, comunicação objetiva e otimização contínua. Mais do
-                que entregar relatórios, construo um processo que transforma
-                dados em decisões claras para escalar resultado com consistência.
+                Minha base inclui comportamento do consumidor, estratégia de
+                marca, funil e métricas. Com essa perspectiva, analiso campanhas
+                dentro de um contexto mais amplo e conduzo ajustes de forma
+                contínua a partir de dados.
               </p>
 
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
@@ -572,14 +488,14 @@ export default function Home() {
         >
           <div className="mb-10 text-center">
             <span className="text-xs uppercase tracking-[0.2em] text-[#FF6B35]">
-              Serviços
+              Atuação
             </span>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-              Como posso <span className="text-gradient-primary">acelerar</span> seu crescimento
+              Frentes de <span className="text-gradient-primary">atuação profissional</span>
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-300 sm:text-base">
-              Três frentes integradas para transformar verba em resultado de
-              negócio com clareza, estratégia e execução.
+              Escopo de trabalho estruturado em planejamento, execução e análise
+              contínua de campanhas e mensagens.
             </p>
           </div>
 
@@ -653,7 +569,7 @@ export default function Home() {
               Método
             </span>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-              Um processo <span className="text-gradient-primary">simples</span> para gerar resultado
+              Forma de trabalho <span className="text-gradient-primary">estruturada</span>
             </h2>
           </div>
 
@@ -690,43 +606,6 @@ export default function Home() {
         </motion.section>
 
         <motion.section
-          id="faq"
-          className="py-14 sm:py-20"
-          variants={sectionReveal}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <div className="mb-10 text-center">
-            <span className="text-xs uppercase tracking-[0.2em] text-[#FF6B35]">
-              Perguntas frequentes
-            </span>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-              Tire suas <span className="text-gradient-primary">dúvidas</span> antes de começar
-            </h2>
-          </div>
-
-          <motion.div
-            className="mx-auto max-w-3xl space-y-3"
-            variants={listStagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
-          >
-            {faq.map((item, index) => (
-              <FaqItem
-                key={item.pergunta}
-                index={index}
-                pergunta={item.pergunta}
-                resposta={item.resposta}
-                open={openFaq === index}
-                onToggle={() => setOpenFaq(openFaq === index ? null : index)}
-              />
-            ))}
-          </motion.div>
-        </motion.section>
-
-        <motion.section
           id="contato"
           className="py-14 sm:py-20"
           variants={sectionReveal}
@@ -739,12 +618,12 @@ export default function Home() {
               Contato
             </span>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-              Vamos construir sua{" "}
-              <span className="text-gradient-primary">próxima campanha?</span>
+              Vamos nos conectar{" "}
+              <span className="text-gradient-primary">profissionalmente?</span>
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-300 sm:text-base">
-              Estou pronto para ajudar você a estruturar mídia paga, copy e funil
-              com foco em crescimento previsível.
+              Disponível para conversas sobre projetos, oportunidades e trocas
+              profissionais em marketing digital.
             </p>
           </div>
 
@@ -766,7 +645,7 @@ export default function Home() {
                 <MessageCircle className="size-6" aria-hidden />
               </span>
               <h3 className="text-base font-semibold text-white sm:text-lg">WhatsApp</h3>
-              <p className="text-sm text-slate-300">Resposta rápida</p>
+              <p className="text-sm text-slate-300">Contato profissional</p>
               <span className="mt-1 text-xs font-medium text-[#FF6B35] group-hover:underline">
                 Abrir conversa
               </span>
@@ -811,10 +690,11 @@ export default function Home() {
           >
             <div>
               <h3 className="text-lg font-semibold text-white sm:text-xl">
-                Pronto para estruturar sua próxima campanha?
+                Disponível para novos desafios profissionais
               </h3>
               <p className="mt-1 text-sm text-slate-300 sm:text-base">
-                Agende uma conversa e receba um diagnóstico inicial do seu cenário.
+                Se fizer sentido para você, podemos conversar sobre contexto,
+                objetivos e possibilidades de atuação.
               </p>
             </div>
             <a
@@ -823,7 +703,7 @@ export default function Home() {
               rel="noreferrer"
               className="portfolio-btn portfolio-btn-primary btn-shimmer w-full sm:w-auto"
             >
-              Solicitar diagnóstico
+              Entrar em contato
             </a>
           </motion.div>
         </motion.section>
