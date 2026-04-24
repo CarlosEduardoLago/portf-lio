@@ -1,14 +1,13 @@
 "use client";
 
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import {
   BarChart3,
   ChevronDown,
+  GraduationCap,
   Mail,
   MapPin,
   MessageCircle,
-  PenLine,
   Target,
 } from "lucide-react";
 
@@ -49,76 +48,34 @@ const especialidadesMarketing = [
   "Otimização de ROI",
 ];
 
-const stats = [
-  { valor: 4, sufixo: "+", label: "Anos em marketing digital" },
-  { valor: 50, sufixo: "+", label: "Campanhas gerenciadas" },
-  { valor: 2, sufixo: "MM+", prefixo: "R$ ", label: "Verba gerenciada em mídia" },
-  { valor: 2, sufixo: "", label: "Plataformas: Meta + Google" },
-];
-
-const servicos = [
+const experiencias = [
   {
     icone: Target,
-    titulo: "Gestão de Tráfego Pago",
+    titulo: "712 Propaganda",
+    subtitulo: "Gestor de Tráfego Pago | Performance & Growth",
+    periodo: "jan/2026 - atual",
     descricao:
-      "Planejamento, execução e acompanhamento de campanhas em Meta Ads e Google Ads com foco em consistência operacional e análise de desempenho.",
+      "Gestão de campanhas no Meta Ads e Google Ads com foco em resultado, cuidando de todo o processo: briefing, estratégia de funil, criação de copy, segmentação e otimização contínua com base em dados.",
     itens: [
-      "Planejamento de canal e funil",
-      "Segmentação de público e criativos",
-      "Otimização contínua orientada a dados",
+      "Gestão de campanhas Meta Ads e Google Ads com foco em performance",
+      "Briefing, estratégia de funil, copy, segmentação e otimização contínua",
+      "Copy e tráfego integrados dentro de uma visão ampla de marketing digital",
     ],
     cor: "primary" as const,
-  },
-  {
-    icone: PenLine,
-    titulo: "Copy & Funil de Conversão",
-    descricao:
-      "Desenvolvimento de mensagens para diferentes etapas do funil, alinhando tom de voz, proposta e contexto de audiência.",
-    itens: [
-      "Copy para anúncios e landing pages",
-      "Estrutura de funil por consciência",
-      "Testes A/B de oferta e criativo",
-    ],
-    cor: "secondary" as const,
   },
   {
     icone: BarChart3,
-    titulo: "Diagnóstico de Crescimento",
+    titulo: "CVC Viagens",
+    subtitulo: "Analista de Marketing Digital",
+    periodo: "jul/2022 - dez/2025 (3 anos e 6 meses)",
     descricao:
-      "Leitura de indicadores de aquisição e conversão para identificar pontos de melhoria e orientar decisões de otimização.",
+      "Atuação em marketing digital com uso de ferramentas analíticas para monitorar e otimizar o desempenho das campanhas, garantindo o máximo retorno sobre o investimento.",
     itens: [
-      "Auditoria de campanhas e contas",
-      "Leitura de métricas-chave",
-      "Plano de testes e escala",
+      "Monitoramento e otimização de campanhas com foco em ROI",
+      "Leitura de métricas e transformação de dados em insights acionáveis",
+      "Criação de mensagens segmentadas para redes sociais, ads, e-mail e LPs",
     ],
-    cor: "primary" as const,
-  },
-];
-
-const metodo = [
-  {
-    numero: "01",
-    titulo: "Imersão no negócio",
-    descricao:
-      "Entendimento profundo da oferta, público-alvo, ticket médio e metas de crescimento antes de qualquer campanha.",
-  },
-  {
-    numero: "02",
-    titulo: "Estratégia de aquisição",
-    descricao:
-      "Definição de canal, proposta e mensagem por etapa do funil, conectando investimento a decisões de compra.",
-  },
-  {
-    numero: "03",
-    titulo: "Execução com testes",
-    descricao:
-      "Ativação de campanhas, criativos e copy com rotina de testes semanais para validar o que converte de verdade.",
-  },
-  {
-    numero: "04",
-    titulo: "Otimização contínua",
-    descricao:
-      "Acompanhamento de métricas, ajustes recorrentes e documentação dos aprendizados ao longo do ciclo das campanhas.",
+    cor: "secondary" as const,
   },
 ];
 
@@ -182,43 +139,6 @@ function WaveDivider({ flip = false }: { flip?: boolean }) {
   );
 }
 
-function AnimatedCounter({
-  to,
-  prefix = "",
-  suffix = "",
-}: {
-  to: number;
-  prefix?: string;
-  suffix?: string;
-}) {
-  const ref = useRef<HTMLSpanElement | null>(null);
-  const inView = useInView(ref, { once: true, amount: 0.6 });
-  const motionValue = useMotionValue(0);
-  const spring = useSpring(motionValue, { duration: 1500, bounce: 0 });
-  const [display, setDisplay] = useState("0");
-
-  useEffect(() => {
-    if (inView) {
-      motionValue.set(to);
-    }
-  }, [inView, motionValue, to]);
-
-  useEffect(() => {
-    const unsubscribe = spring.on("change", (latest) => {
-      setDisplay(Math.round(latest).toString());
-    });
-    return () => unsubscribe();
-  }, [spring]);
-
-  return (
-    <span ref={ref}>
-      {prefix}
-      {display}
-      {suffix}
-    </span>
-  );
-}
-
 function FloatingWhatsApp() {
   return (
     <a
@@ -262,23 +182,23 @@ export default function Home() {
             <a href="#sobre" className="transition-colors duration-300 hover:text-[#FF6B35]">
               Sobre
             </a>
-            <a href="#servicos" className="transition-colors duration-300 hover:text-[#FF6B35]">
-              Serviços
+            <a href="#experiencia" className="transition-colors duration-300 hover:text-[#FF6B35]">
+              Experiência
             </a>
-            <a href="#metodo" className="transition-colors duration-300 hover:text-[#FF6B35]">
-              Método
+            <a href="#formacao" className="transition-colors duration-300 hover:text-[#FF6B35]">
+              Formação
             </a>
             <a href="#contato" className="transition-colors duration-300 hover:text-[#FF6B35]">
               Contato
             </a>
           </div>
           <a
-            href={whatsappLink}
+            href={linkedinLink}
             target="_blank"
             rel="noreferrer"
             className="portfolio-btn portfolio-btn-primary btn-shimmer hidden h-10 px-4 text-sm sm:inline-flex"
           >
-            Contato
+            LinkedIn
           </a>
         </nav>
       </header>
@@ -291,7 +211,7 @@ export default function Home() {
           animate="show"
           className="relative grid gap-10 py-14 sm:py-20 md:py-28 lg:grid-cols-[1.2fr_0.8fr] lg:items-center"
         >
-          <div className="space-y-6 text-center lg:text-left">
+          <div className="order-2 space-y-6 text-center lg:order-1 lg:text-left">
             <div className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
               {especialidadesMarketing.slice(0, 4).map((item) => (
                 <Badge
@@ -309,15 +229,15 @@ export default function Home() {
               transition={{ duration: 0.55, delay: 0.1 }}
               className="text-4xl leading-[1.05] font-bold tracking-[-0.02em] sm:text-5xl md:text-6xl"
             >
-              Gestão de tráfego e{" "}
-              <span className="text-gradient-primary">copywriting</span> com
-              abordagem estratégica.
+              Marketing digital com foco em{" "}
+              <span className="text-gradient-primary">tráfego pago</span> e
+              copywriting.
             </motion.h1>
             <p className="mx-auto max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg lg:mx-0">
-              Sou <strong className="text-slate-100">Carlos Eduardo Lago</strong>,
-              gestor de tráfego e copywriter. Minha atuação integra estratégia,
-              mídia e comunicação com foco em contexto de negócio, funil e
-              métricas de desempenho.
+              Sou <strong className="text-slate-100">Carlos Eduardo Lago</strong>.
+              Trabalho com marketing digital há alguns anos e me aprofundei em
+              duas frentes que precisam andar juntas: gestão de tráfego e
+              copywriting.
             </p>
             <motion.div
               className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap lg:justify-start"
@@ -326,20 +246,20 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.22 }}
             >
               <a
-                href={whatsappLink}
+                href={linkedinLink}
                 target="_blank"
                 rel="noreferrer"
                 className="portfolio-btn portfolio-btn-primary btn-shimmer w-full sm:w-auto"
               >
-                Entrar em contato
+                Ver no LinkedIn
               </a>
               <a
-                href={linkedinLink}
+                href={whatsappLink}
                 target="_blank"
                 rel="noreferrer"
                 className="portfolio-btn portfolio-btn-secondary w-full sm:w-auto"
               >
-                Ver LinkedIn
+                Falar comigo
               </a>
             </motion.div>
 
@@ -353,7 +273,7 @@ export default function Home() {
           </div>
 
           <motion.div
-            className="relative mx-auto flex max-w-sm items-center justify-center"
+            className="order-1 relative mx-auto flex max-w-sm items-center justify-center lg:order-2"
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -405,6 +325,10 @@ export default function Home() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
               Marketing digital com <span className="text-gradient-primary">visão integrada</span>
             </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-300 sm:text-base">
+              Um pouco sobre quem sou e como enxergo o trabalho em tráfego pago
+              e copywriting.
+            </p>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -440,46 +364,26 @@ export default function Home() {
 
             <motion.div className="space-y-6" variants={itemReveal}>
               <p className="text-base leading-relaxed text-slate-200 sm:text-lg">
-                Atuo em marketing digital com integração entre{" "}
+                Trabalho com marketing digital há alguns anos e, dentro desse
+                universo, me aprofundei em duas frentes que, na minha visão,
+                precisam andar juntas:{" "}
                 <strong className="text-white">gestão de tráfego</strong> e{" "}
-                <strong className="text-white">copywriting</strong>. Essa
-                combinação orienta meu trabalho desde o entendimento do negócio
-                até a estruturação das campanhas.
+                <strong className="text-white">copywriting</strong>. Minha base
+                é o marketing digital por inteiro: comportamento do consumidor,
+                estratégia de marca, funil de vendas e métricas.
               </p>
               <p className="text-base leading-relaxed text-slate-300 sm:text-lg">
-                Minha base inclui comportamento do consumidor, estratégia de
-                marca, funil e métricas. Com essa perspectiva, analiso campanhas
-                dentro de um contexto mais amplo e conduzo ajustes de forma
-                contínua a partir de dados.
+                Antes de qualquer criativo, quero entender o negócio a fundo:
+                o que está sendo oferecido, pra quem e o que já foi executado.
+                Só a partir daí a estratégia começa a fazer sentido. Não enxergo
+                o anúncio isolado, e sim dentro de um contexto maior.
               </p>
-
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                {stats.map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-2xl border border-white/10 bg-slate-900/70 p-4 backdrop-blur-sm sm:p-5"
-                  >
-                    <p className="text-2xl font-bold text-white sm:text-3xl">
-                      <span className="text-gradient-primary">
-                        <AnimatedCounter
-                          to={item.valor}
-                          prefix={item.prefixo ?? ""}
-                          suffix={item.sufixo}
-                        />
-                      </span>
-                    </p>
-                    <p className="mt-1 text-xs text-slate-300 sm:text-sm">
-                      {item.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </motion.div>
           </div>
         </motion.section>
 
         <motion.section
-          id="servicos"
+          id="experiencia"
           className="py-14 sm:py-20"
           variants={sectionReveal}
           initial="hidden"
@@ -488,25 +392,25 @@ export default function Home() {
         >
           <div className="mb-10 text-center">
             <span className="text-xs uppercase tracking-[0.2em] text-[#FF6B35]">
-              Atuação
+              Experiência
             </span>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-              Frentes de <span className="text-gradient-primary">atuação profissional</span>
+              Trajetória em <span className="text-gradient-primary">marketing digital</span>
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-300 sm:text-base">
-              Escopo de trabalho estruturado em planejamento, execução e análise
-              contínua de campanhas e mensagens.
+              Principais posições em que atuei com gestão de tráfego, análise
+              de dados e copywriting.
             </p>
           </div>
 
           <motion.div
-            className="grid gap-5 md:grid-cols-3"
+            className="grid gap-5 md:grid-cols-2"
             variants={listStagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {servicos.map((item) => {
+            {experiencias.map((item) => {
               const Icon = item.icone;
               const glowClass =
                 item.cor === "primary"
@@ -530,7 +434,13 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-white sm:text-xl">
                     {item.titulo}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:text-base">
+                  <p className="mt-1 text-sm font-medium text-slate-200 sm:text-base">
+                    {item.subtitulo}
+                  </p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-slate-400">
+                    {item.periodo}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
                     {item.descricao}
                   </p>
                   <ul className="mt-5 space-y-2 text-sm text-slate-200">
@@ -557,7 +467,7 @@ export default function Home() {
         <WaveDivider flip />
 
         <motion.section
-          id="metodo"
+          id="formacao"
           className="py-14 sm:py-20"
           variants={sectionReveal}
           initial="hidden"
@@ -566,43 +476,48 @@ export default function Home() {
         >
           <div className="mb-10 text-center">
             <span className="text-xs uppercase tracking-[0.2em] text-[#FF6B35]">
-              Método
+              Formação
             </span>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-              Forma de trabalho <span className="text-gradient-primary">estruturada</span>
+              Formação <span className="text-gradient-primary">acadêmica</span>
             </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-300 sm:text-base">
+              Base de estudo que sustenta minha atuação em marketing digital.
+            </p>
           </div>
 
-          <motion.ol
-            className="relative grid gap-5 md:grid-cols-2"
+          <motion.div
+            className="mx-auto max-w-3xl"
             variants={listStagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {metodo.map((item) => (
-              <motion.li
-                key={item.numero}
-                variants={itemReveal}
-                className="relative flex gap-4 rounded-3xl border border-white/10 bg-slate-900/60 p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#FF6B35]/40 sm:p-6"
-              >
-                <span
-                  className="text-gradient-primary text-3xl font-bold leading-none sm:text-4xl"
-                  aria-hidden
-                >
-                  {item.numero}
-                </span>
-                <div>
-                  <h3 className="text-base font-semibold text-white sm:text-lg">
-                    {item.titulo}
-                  </h3>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-300 sm:text-base">
-                    {item.descricao}
-                  </p>
-                </div>
-              </motion.li>
-            ))}
-          </motion.ol>
+            <motion.article
+              variants={itemReveal}
+              className="glass card-glow-primary group flex flex-col gap-5 rounded-3xl p-6 sm:flex-row sm:items-center sm:p-8"
+            >
+              <div className="inline-flex size-14 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#FF6B35_0%,#F7931E_100%)] text-white shadow-lg sm:size-16">
+                <GraduationCap className="size-7 sm:size-8" aria-hidden />
+              </div>
+              <div className="flex-1 text-center sm:text-left">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
+                  Descomplica
+                </p>
+                <h3 className="mt-1 text-xl font-semibold text-white sm:text-2xl">
+                  Graduação em Marketing Digital
+                </h3>
+                <p className="mt-1 text-sm font-medium text-[#FF6B35] sm:text-base">
+                  abr/2024 - abr/2025
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
+                  Formação voltada para as principais frentes do marketing
+                  digital — tráfego pago, copywriting, análise de dados e funil
+                  — que sustenta a atuação prática no dia a dia das campanhas.
+                </p>
+              </div>
+            </motion.article>
+          </motion.div>
         </motion.section>
 
         <motion.section
@@ -622,8 +537,8 @@ export default function Home() {
               <span className="text-gradient-primary">profissionalmente?</span>
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-300 sm:text-base">
-              Disponível para conversas sobre projetos, oportunidades e trocas
-              profissionais em marketing digital.
+              Aberto a conversas sobre marketing digital, oportunidades e troca
+              de experiências.
             </p>
           </div>
 
@@ -645,9 +560,9 @@ export default function Home() {
                 <MessageCircle className="size-6" aria-hidden />
               </span>
               <h3 className="text-base font-semibold text-white sm:text-lg">WhatsApp</h3>
-              <p className="text-sm text-slate-300">Contato profissional</p>
+              <p className="text-sm text-slate-300">Conversa direta</p>
               <span className="mt-1 text-xs font-medium text-[#FF6B35] group-hover:underline">
-                Abrir conversa
+                Mandar mensagem
               </span>
             </motion.a>
 
@@ -662,7 +577,7 @@ export default function Home() {
                 <LinkedinIcon className="size-6" />
               </span>
               <h3 className="text-base font-semibold text-white sm:text-lg">LinkedIn</h3>
-              <p className="text-sm text-slate-300">Conecte-se comigo</p>
+              <p className="text-sm text-slate-300">Trajetória profissional</p>
               <span className="mt-1 text-xs font-medium text-cyan-300 group-hover:underline">
                 Ver perfil
               </span>
@@ -690,7 +605,7 @@ export default function Home() {
           >
             <div>
               <h3 className="text-lg font-semibold text-white sm:text-xl">
-                Disponível para novos desafios profissionais
+                Sempre disponível para trocar experiências e construir projetos
               </h3>
               <p className="mt-1 text-sm text-slate-300 sm:text-base">
                 Se fizer sentido para você, podemos conversar sobre contexto,
@@ -698,12 +613,12 @@ export default function Home() {
               </p>
             </div>
             <a
-              href={whatsappLink}
+              href={linkedinLink}
               target="_blank"
               rel="noreferrer"
               className="portfolio-btn portfolio-btn-primary btn-shimmer w-full sm:w-auto"
             >
-              Entrar em contato
+              Ver no LinkedIn
             </a>
           </motion.div>
         </motion.section>
@@ -730,7 +645,7 @@ export default function Home() {
               <InstagramIcon className="size-4" />
             </a>
             <a
-              href={`mailto:contato@example.com`}
+              href="mailto:carloseduardo.lago@yahoo.com.br"
               aria-label="E-mail"
               className="transition-colors hover:text-[#FF6B35]"
             >
