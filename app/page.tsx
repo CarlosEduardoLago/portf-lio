@@ -230,13 +230,13 @@ export default function Home() {
               className="text-4xl leading-[1.05] font-bold tracking-[-0.02em] sm:text-5xl md:text-6xl"
             >
               Marketing digital com foco em{" "}
-              <span className="text-gradient-primary">tráfego pago</span> e
+              <span className="text-gradient-primary">marketing de performance</span> e
               copywriting.
             </motion.h1>
             <p className="mx-auto max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg lg:mx-0">
               Sou <strong className="text-slate-100">Carlos Eduardo Lago</strong>.
               Trabalho com marketing digital há alguns anos e me aprofundei em
-              duas frentes que precisam andar juntas: gestão de tráfego e
+              duas frentes que precisam andar juntas: marketing de performance e
               copywriting.
             </p>
             <motion.div
@@ -326,7 +326,7 @@ export default function Home() {
               Marketing digital com <span className="text-gradient-primary">visão integrada</span>
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-300 sm:text-base">
-              Um pouco sobre quem sou e como enxergo o trabalho em tráfego pago
+              Um pouco sobre quem sou e como enxergo o trabalho em marketing de performance
               e copywriting.
             </p>
           </div>
@@ -343,7 +343,7 @@ export default function Home() {
                 </Avatar>
                 <div>
                   <p className="text-lg font-semibold text-white">Carlos Eduardo Lago</p>
-                  <p className="text-sm text-slate-300">Gestor de Tráfego & Copywriter</p>
+                  <p className="text-sm text-slate-300">Especialista em Marketing de Performance & Copywriter</p>
                 </div>
                 <div className="flex flex-wrap justify-center gap-2">
                   {especialidadesMarketing.map((item) => (
@@ -367,7 +367,7 @@ export default function Home() {
                 Trabalho com marketing digital há alguns anos e, dentro desse
                 universo, me aprofundei em duas frentes que, na minha visão,
                 precisam andar juntas:{" "}
-                <strong className="text-white">gestão de tráfego</strong> e{" "}
+                <strong className="text-white">marketing de performance</strong> e{" "}
                 <strong className="text-white">copywriting</strong>. Minha base
                 é o marketing digital por inteiro: comportamento do consumidor,
                 estratégia de marca, funil de vendas e métricas.
@@ -512,7 +512,7 @@ export default function Home() {
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
                   Formação voltada para as principais frentes do marketing
-                  digital — tráfego pago, copywriting, análise de dados e funil
+                  digital — marketing de performance, copywriting, análise de dados e funil
                   — que sustenta a atuação prática no dia a dia das campanhas.
                 </p>
               </div>
